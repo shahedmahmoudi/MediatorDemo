@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DemoLibrary.Models
 {
-    class PesonModel
+   public class PesonModel
     {
         public int Id { get; set; }
         public string firstName { get; set; }
