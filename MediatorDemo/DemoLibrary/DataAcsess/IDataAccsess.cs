@@ -9,6 +9,6 @@ namespace DemoLibrary.DataAcsess
     {
         
         PesonModel InsertPeople(string firstName, string lastName);
-        IEnumerable<PesonModel> GetPeople();
+        List<PesonModel> GetPeople();
     }
 }

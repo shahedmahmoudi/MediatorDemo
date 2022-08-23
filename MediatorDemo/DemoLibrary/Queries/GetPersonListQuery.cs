@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DemoLibrary.Queries
 {
-    public class GetPersonListQuery : IRequest<IEnumerable<PesonModel>>
+    public class GetPersonListQuery : IRequest<List<PesonModel>>
     {
 
     }   

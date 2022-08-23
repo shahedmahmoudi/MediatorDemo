@@ -10,7 +10,7 @@ using MediatR;
 
 namespace DemoLibrary.Handlers
 {
-    public class GetPersonListHandler : IRequestHandler<GetPersonListQuery, IEnumerable<PesonModel>>
+    public class GetPersonListHandler : IRequestHandler<GetPersonListQuery, List<PesonModel>>
     {
         private readonly IDataAccsess _data;
         public GetPersonListHandler(IDataAccsess data)
@@ -20,7 +20,7 @@ namespace DemoLibrary.Handlers
 
         
 
-        public Task<IEnumerable<PesonModel>> Handle(GetPersonListQuery request, CancellationToken cancellationToken)
+        public Task<List<PesonModel>> Handle(GetPersonListQuery request, CancellationToken cancellationToken)
         {
             return Task.FromResult(_data.GetPeople());
         }
