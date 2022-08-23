@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DemoLibrary.DataAcsess
 {
-    interface IDataAccsess
+  public  interface IDataAccsess
     {
         
         PesonModel InsertPeople(string firstName, string lastName);
