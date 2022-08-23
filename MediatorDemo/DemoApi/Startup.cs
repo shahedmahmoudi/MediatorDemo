@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace DemoApi
 {
@@ -29,6 +30,18 @@ namespace DemoApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+        
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Demo API",
+                    Description = "Demo API",
+                    Contact = new OpenApiContact() { Name = "Shahed", Email = "Shahed.mahmoudi@gmail.com" }
+                });
+                c.CustomSchemaIds(x => x.FullName);
+            }); 
             services.AddSingleton<IDataAccsess, DemoDataAccsess>();
             services.AddMediatR(typeof(DemoLibraryMediatREntrypoint).Assembly);
         }
