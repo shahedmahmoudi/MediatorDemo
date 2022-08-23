@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DemoLibrary;
+using DemoLibrary.DataAcsess;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +29,8 @@ namespace DemoApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSingleton<IDataAccsess, DemoDataAccsess>();
+            services.AddMediatR(typeof(DemoLibraryMediatREntrypoint).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
