@@ -15,7 +15,7 @@ namespace DemoLibrary.Handlers
         private readonly IMediator _mediator;
         public GetPersonByIdHandler(IMediator mediator)
         {
-
+            _mediator = mediator;
         }
         public async Task<PesonModel> Handle(GetPersonByIdQuery request,CancellationToken canclelationToken)
         {
