@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DemoLibrary.Commands;
 using DemoLibrary.Models;
 using DemoLibrary.Queries;
 using MediatR;
@@ -35,8 +36,10 @@ namespace DemoApi.Controllers
 
         // POST: api/Person
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<PesonModel> Post([FromBody] PesonModel value)
         {
+            var model = new InsertPersonCommand(value.firstName, value.lastName);
+            return await _mediator.Send(model);
         }
 
         // PUT: api/Person/5
